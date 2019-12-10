@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 0;
+  font-family: Helvetica Neue, Helvetica;
+  background: #f7f7f7;
+  text-align:center;
+  align-content: center;
+
+}
+
+h3 {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+form {
+
+display:inline-block;
+ position:relative;
+  text-align: center;
+  align-items: center;
+  width: 80%;
+  border:solid;
+  border-color: #999;
+  padding:15px;
+  margin:10px;
+  margin-top:5%;
+  border-radius: 5px;
+
+    padding: 20px;
+
+}
+
+form input {
+  display: block;
+  width: 100%;
+  font-size: 20px;
+  padding: 5px 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+
+}
+
+form input.error {
+  border-color: red;
+}
+
+form button {
+  display: inline;
+  width: 30%;
+  appearance: none;
+  border-radius: 5px;
+  background-color: #84c00c;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  height: 40px;
+  margin-top: 30px;
+  margin: 10px;
+}
+
+form button:hover {
+  background-color: #669509;
+}
+
+form button:disabled {
+  background-color: #dbf99f;
+  color: #333;
+}
+
+form button.small {
+  display: inline-block;
+  width: auto;
+  padding: 0 20px;
+  background-color: blue;
+  font-size: 14px;
+}
+form button.small-red {
+  display: inline-block;
+  width: auto;
+  padding: 0 20px;
+  background-color: red;
+  font-size: 14px;
+}
+
+form button.small:hover {
+  background-color: #999;
+}
+
+.shareholder {
+  display: flex;
+  direction: row;
+  align-items: center;
+}
+
+.shareholder button {
+  margin: 0;
+  margin-left: 10px;
+}
+
+h4{
+display:inline-block;
+margin-right:20px;
+}
+.textField{
+width:100%;
+font-size: 20px;
+padding: 5px 10px;
+  margin: 10px 5px;
+}
+
+.link{
+font-size:2em;
+margin-right:20%
+}
+
+
+.leftMenu{
+text-align:left
+}
+
+.deleteClassButton{
+
+width:10px;
+display:inline-block;
+margin-left:5%;
+}
+
+li.div{
+display:inline-block
+}
+
+.regexDiv{
+display:inline-block;
+float:left;
+width:100%;
+}

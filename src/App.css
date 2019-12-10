@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  align-items:center;
+  width: 100%
 }
 
 .App-logo {
@@ -19,4 +21,13 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+body{
+text-align: center;
+  align-items:center;
+}
+
+.Button{
+padding:10px;
 }

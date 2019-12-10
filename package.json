@@ -3,8 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.6.0",
+    "@material-ui/icons": "^4.5.1",
+    "@material-ui/lab": "^4.0.0-alpha.31",
+    "axios": "^0.19.0",
+    "bootstrap": "^4.4.0",
+    "json-validator": "0.0.34",
+    "jsonschema": "^1.2.5",
+    "parse-function": "^5.5.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-js-banner": "^0.3.0",
+    "react-jsonschema-form": "^2.0.0-alpha.1",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0"
   },
   "scripts": {

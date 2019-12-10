@@ -1,0 +1,26 @@
+.top-banner-container{
+
+ top:0;
+ width: 100%;
+ background: #37474f;
+ float:left;
+ color:#fff;
+ display:block;
+ height: 10%;
+}
+.title{
+position:relative;
+margin-top: 2%;
+padding-left:30px;
+
+}
+.title h2{
+
+}
+
+.buttons-container{
+position:relative;
+padding-bottom:20px;
+
+
+}

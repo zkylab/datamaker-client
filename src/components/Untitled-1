@@ -1,0 +1,110 @@
+public static String generateDataRelationalSQL(String parentClass, String className, String filePath, int size, boolean deneme, JSONObject midTabledata) {
+        JSONObject temp = new JSONObject();
+        JSONObject data = new JSONObject();
+        String insertQuery = "";
+        String createTable = "";
+        String total = "";
+        if (midTabledata == null)
+            midTabledata = new JSONObject();
+        if (!GenericDataBase.primaryKey.containsKey(className))
+            GenericDataBase.primaryKey.put(className, 0);
+        ArrayList<Attribute> atrributes = generateAttributeList(className, filePath);
+        for (int i = 0; i < size; i++) {
+            if (!GenericDataBase.tableName.containsKey(className)) {
+                createTable += "DROP TABLE IF EXISTS " + className + "; CREATE TABLE " + className + "(PKID INT,";
+            }
+            insertQuery += "INSERT INTO " + className + " VALUES(" + pkidIncrementAndGet(className);
+            if (parentClass != null) {
+                if (!GenericDataBase.tableName.containsKey(className)) {
+                    createTable += " " + parentClass + "_FKID INT,";
+                }
+                insertQuery += ", " + getPKID(parentClass);
+            }
+            for (Attribute attribute : atrributes) {
+                if (attribute.getArraySize() == 1) {
+                    if (attribute.isPrimitive()) {
+                        switch (attribute.getType()) {
+                            case "int":
+                                if (!GenericDataBase.tableName.containsKey(className))
+                                    createTable += attribute.getName() + " INT, ";
+                                insertQuery += ", " + Integer.parseInt(Generator.generateValidData(attribute.getRegex()));
+                                break;
+                            case "double":
+                                if (!GenericDataBase.tableName.containsKey(className))
+                                    createTable += attribute.getName() + " FLOAT, ";
+                                insertQuery += ", " + Double.parseDouble(Generator.generateValidData(attribute.getRegex()));
+                                break;
+                            default:
+                                if (!GenericDataBase.tableName.containsKey(className))
+                                    createTable += attribute.getName() + " VARCHAR(255), ";
+                                insertQuery += ", " + "\"" + Generator.generateValidData(attribute.getRegex()) + "\"";
+                        }
+                    } else {
+                        String match = findTypeInList(attribute, className);
+                        String name = className + "_" + attribute.getType() + "_mid";
+                        if (match == null) {
+                            total += generateDataRelationalSQL(className, attribute.getType(), filePath, size, true, null);
+                        } else if (deneme) {
+                            if (GenericDataBase.midTable.isEmpty()) {
+                                GenericDataBase.midTable.put(new JSONObject().put("tableName", name));
+                                GenericDataBase.primaryKey.put(name, 0);
+                            }
+                            temp.put("PKID", pkidIncrementAndGet(name));
+                            temp.put(className + "_FKID", getPKID(className));
+                            temp.put(attribute.getType() + "_FKID", getPKID(attribute.getType()) + 1);
+                            GenericDataBase.midTable.put(temp);
+                            temp = new JSONObject();
+                            total += generateDataRelationalSQL(null, attribute.getType(), filePath, size, false, midTabledata);
+
+
+                        }
+//                        one.put(attribute.getName() + "-FK", GenericDataBase.primaryKey.get(attribute.getType()));
+                    }
+                } else {
+                    JSONArray array = new JSONArray();
+                    for (int k = 0; k < attribute.getArraySize(); k++) {
+                        if (attribute.isPrimitive()) {
+                            switch (attribute.getType()) {
+                                case "int":
+                                    array.put(Integer.parseInt(Generator.generateValidData(attribute.getRegex())));
+                                    break;
+                                case "double":
+                                    array.put(Double.parseDouble(Generator.generateValidData(attribute.getRegex())));
+                                    break;
+                                default:
+                                    array.put(Generator.generateValidData(attribute.getRegex()));
+                                    break;
+                            }
+                        } else {
+                            String match = findTypeInList(attribute, className);
+                            String name = className + "_" + attribute.getType() + "_mid";
+                            if (match == null) {
+                                total += generateDataRelationalSQL(className, attribute.getType(), filePath, size, true, null);
+                            } else if (deneme) {
+                                if (GenericDataBase.midTable.isEmpty()) {
+                                    GenericDataBase.midTable.put(new JSONObject().put("tableName", name));
+                                    GenericDataBase.primaryKey.put(name, 0);
+                                }
+                                temp.put("PKID", pkidIncrementAndGet(name));
+                                temp.put(className + "_fk", getPKID(className));
+                                temp.put(attribute.getType() + "_fk", getPKID(attribute.getType()) + 1);
+                                GenericDataBase.midTable.put(temp);
+                                temp = new JSONObject();
+                                total += generateDataRelationalSQL(null, attribute.getType(), filePath, size, false, midTabledata);
+                            }
+                        }
+
+                    }
+                }
+            }
+            GenericDataBase.tableName.put(className, className);
+            if (!createTable.equals("")) {
+                createTable = createTable.substring(0, createTable.length() - 2);
+                createTable += ");";
+            }
+
+            total += createTable + insertQuery + ");";
+        }
+        System.out.println(total);
+        return total;
+    }
