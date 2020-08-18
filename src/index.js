@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import DefineRule from './components/DefineRule.js';
+import ErtDataGen from './components/ErtDataGen.js';
 import * as serviceWorker from './serviceWorker';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 
@@ -13,7 +14,7 @@ const routing = (
       <div>
         <Route exact path="/" component={App} />
         <Route path="/defineRule" component={DefineRule} />
-       
+        <Route path="/ErtDataGen" component={ErtDataGen} />
       </div>
     </Router>
   )

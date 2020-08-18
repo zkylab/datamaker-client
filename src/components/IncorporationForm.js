@@ -371,6 +371,7 @@ class IncorporationForm extends React.Component {
       <div>
         <Button className="top-button" variant="contained" color="secondary" onClick={this.createNewClass}>Add New Class</Button>
         <Button className="top-button" variant="contained" color="primary" href="/defineRule">Define Rule</Button>
+        <Button className="top-button" variant="contained" color="primary" href="/ertDataGen  ">EzRestTest Data Generator</Button>
         <div className="leftMenu">
 
           <ul>

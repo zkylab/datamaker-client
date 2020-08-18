@@ -1,0 +1,223 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  font-family: Helvetica Neue, Helvetica;
+}
+
+#textfield{
+  display: inline-block;
+  height: 10px;
+  width: 100px;
+  color: rgb(0, 0, 0);
+  outline-color: #FFF;
+  border-color: #FFF;
+  background-color: #FFF;
+
+}
+
+#genTypeAndField{
+  height: auto;
+  width: auto;
+  margin-right: auto;
+  margin-left: auto;
+  color: #ffffff;
+  background-color: rgb(133, 131, 139);
+}
+#genType{
+  height: 10px;
+  width: 100px;
+  color: #ffffff;
+}
+#fieldName{
+  height: 10px;
+  width: 100px;
+  color: #ffffff;
+}
+#genType{
+  color: #000000;
+  outline-color: #FFF;
+  border-color: #FFF;
+  background-color: #FFF;
+}
+
+#fieldName{
+  color: #000000;
+  outline-color: #FFF;
+  border-color: #FFF;
+  background-color: #FFF;
+}
+
+#numberInput{
+    height: 30px;
+    width: 50px;
+}
+#mainDiv{
+    height: 680px;
+    width: 960px;
+    margin-right: auto;
+    margin-left: auto;
+    color: #ffffff;
+    background-color: #3a4750;
+}
+#addedInfos{
+  float: left;
+  display: inline-block;
+  height: auto;
+  width: 300px;
+  margin: 10px;
+  color: #000000;
+  background-color: #eeeeee;
+  white-space: pre-line;
+}
+#generator{
+    float: right;
+    display: inline-block;
+    height: auto;
+    width: 600px;
+    margin: 10px;
+    color: #000000;
+    background-color: #eeeeee;
+
+}
+#innerRatioStyle {
+  height: 195px;
+  width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: rgb(59, 59, 59);
+}
+#innerRatioDiv_2 {
+  float: top;
+  display: inline-block;
+  height: 20px;
+  width: 140px;
+  margin: 10px;
+  color: #FFF;
+}
+#operator {
+  float: left;
+  display: inline-block;
+
+  margin: 10px;
+  color: #FFF;
+}
+
+#gaps {
+  float: left;
+  display: inline-block;
+  height: 20px;
+  width: 120px;
+  margin: 25px;
+  color: #FFF;
+}
+
+#addInnerRatioDiv {
+  float: right;
+  display: inline-block;
+  height: 20px;
+  width: 100px;
+  margin: 25px;
+  color: #FFF;
+}
+#typeAndLength {
+  height: 105px;
+  width: 400px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: rgb(59, 59, 59);
+}
+#typeDiv {
+  float: left;
+    display: inline-block;
+    height: 20px;
+    width: 200px;
+    margin: 10px;
+    color: #FFF;
+}
+#lengthSlider {
+  float: left;
+    display: inline-block;
+    height: 20px;
+    width: 120px;
+    margin: 10px;
+    color: #FFF;
+}
+
+
+#condition_div {
+  height: 200px;
+  width: 400px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: rgb(59, 59, 59); 
+}
+
+#addCondition {
+  float: right;
+  left: -10px;
+}
+
+
+
+
+#select {
+  float: left;
+  display: inline-block;
+  height: 130px;
+  width: 200px;
+  margin: 10px;
+  color: #FFF;
+
+}
+
+#addCondition {
+  float: bottom;
+  display: inline-block;
+  height: 50px;
+  width: 150px;
+  margin: 15px;
+  color: rgb(0, 0, 0);
+
+}
+
+#valueSlider {
+  display: inline-block;
+  height: 50px;
+  width: 120px;
+  color: #FFF;
+}
+
+.select select {
+  background-color: #3c4044;
+  color: rgb(255, 255, 255);
+  padding: 12px;
+  width: 160px;
+  border: none;
+  font-size: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+.select::before {
+  content: "\f13a";
+  font-family: FontAwesome;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  
+  pointer-events: none;
+}
+
+
+.select select option {
+  padding: 30px;
+}
